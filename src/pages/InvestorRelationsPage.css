@@ -1,0 +1,262 @@
+.ir-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 16px 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+.ir-hero {
+  margin-bottom: 24px;
+}
+
+.ir-hero-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+  color: #00863a; /* green title */
+}
+
+/* underline like CompanyPage */
+.ir-hero-underline {
+  width: fit-content;
+  min-width: 220px;
+  height: 3px;
+  background: #00863a;
+  margin-top: 10px;
+}
+
+/* tabs */
+.ir-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+}
+
+.ir-tab {
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.ir-tab.active {
+  border-color: #00863a;
+  color: #00863a;
+}
+
+.ir-tab-panel {
+  margin-top: 16px;
+}
+
+.ir-section {
+  margin-bottom: 40px;
+}
+
+.ir-section h2 {
+  font-size: 20px;
+  color: #00863a;
+  margin-bottom: 12px;
+}
+
+.ir-subsection {
+  margin-bottom: 12px;
+}
+
+.ir-subsection h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+
+/* two-column layout for bullets */
+.ir-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .ir-two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* green ">" bullet list */
+.ir-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ir-list li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.ir-list li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(1px);
+  font-weight: 700;
+  color: #00863a;
+}
+
+.ir-paragraph {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ===========================================
+   GENERIC ROW LIST BLOCK (Policies, Results,
+   Annual Reports)
+   =========================================== */
+
+.ir-list-block {
+  border: 1px solid #eeeeee;
+  background: #f9f9f9;
+}
+
+.ir-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* light striped effect like WP page */
+.ir-row:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+.ir-row:nth-child(even) {
+  background: #f5f5f5;
+}
+
+.ir-row:hover {
+  background: #eaeaea;
+}
+
+.ir-row span:first-child {
+  flex: 1;
+  padding-right: 8px;
+}
+
+/* small red PDF icon on the right */
+.ir-pdf-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  background: #e10600;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ir-pdf-icon::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 3px;
+  bottom: 4px;
+  border: 2px solid #ffffff;
+  border-top-width: 3px;
+}
+
+/* remove last border line */
+.ir-row:last-child {
+  border-bottom: none;
+}
+
+/* ===========================================
+   FINANCIAL RESULTS & ANNUAL REPORT BLOCKS
+   =========================================== */
+
+.ir-financial-years {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ir-year-block {
+  margin-bottom: 8px;
+}
+
+.ir-year-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #00863a;
+  margin-bottom: 4px;
+}
+
+/* small tweak on mobile so rows are easy to tap */
+@media (max-width: 768px) {
+  .ir-row {
+    padding: 8px 10px;
+  }
+}
+
+/* ===========================================
+   DISCLOSURES – REG 46 TABLE
+   =========================================== */
+
+.ir-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ir-disclosures-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.ir-disclosures-table thead th {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  padding: 6px 8px;
+  text-align: left;
+  color: #00863a;
+  font-weight: 600;
+}
+
+.ir-disclosures-table tbody td {
+  border: 1px solid #eaeaea;
+  padding: 6px 8px;
+  vertical-align: top;
+}
+
+.ir-disclosures-serial {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ir-link {
+  color: #00863a;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.ir-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+

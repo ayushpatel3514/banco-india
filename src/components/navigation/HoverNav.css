@@ -1,0 +1,299 @@
+/* =========================
+   BASE HEADER
+   ========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+  opacity: 1;
+  padding-top: 14px; /* space above capsule */
+
+  /* blur strip above / behind nav */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.site-header.hide {
+  transform: translateY(-80px);
+  opacity: 0;
+}
+
+.site-header.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* =========================
+   CAPSULE NAV WRAP
+   ========================= */
+
+.nav-wrap {
+  position: relative;
+  background: #ffffff;           /* white inner capsule */
+  border-radius: 999px;
+  width: min(96%, 1480px);      /* wider capsule */
+  max-width: 1480px;
+  margin: 0 16px;
+  padding: 10px 26px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  pointer-events: all;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+
+/* green outer capsule band */
+.nav-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -5px;                  /* thickness of green */
+  border-radius: 999px;
+  background: #009846;
+  z-index: -1;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  margin-right: auto;           /* pushes menus + contact right */
+}
+
+.brand img {
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.brand:hover img,
+.brand:focus-visible img {
+  transform: translateY(-1px);
+}
+
+/* =========================
+   NAV ITEMS
+   ========================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-right: 16px;
+  flex-wrap: nowrap;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #111111;               /* black text */
+  padding: 4px 2px;
+  text-decoration: none;
+}
+
+/* remove underline from all nav anchors */
+.desktop-nav .nav-btn,
+.desktop-nav .nav-btn:link,
+.desktop-nav .nav-btn:visited,
+.desktop-nav .nav-btn:active,
+.desktop-nav .nav-btn:hover,
+.desktop-nav .drop-link,
+.desktop-nav .drop-link:link,
+.desktop-nav .drop-link:visited,
+.desktop-nav .drop-link:active {
+  text-decoration: none;
+}
+
+.nav-btn span,
+.drop-link {
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  color: #009846;
+}
+
+/* =========================
+   DROPDOWN
+   ========================= */
+
+.dropdown {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 18px);
+  transform-origin: top left;
+  transform: scaleY(0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: 18px;
+  padding: 14px 0;
+  min-width: 260px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  z-index: 1100;
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.nav-item.is-open .dropdown {
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.drop-link {
+  display: block;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.nav-item.is-open .drop-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.drop-link:hover {
+  background: rgba(0, 0, 0, 0.35);
+  color: #00d06a;
+}
+
+/* =========================
+   CTA BUTTON
+   ========================= */
+
+.nav-cta {
+  flex: 0 0 auto;
+}
+
+.btn-primary,
+.btn-primary:link,
+.btn-primary:visited {
+  background: #009846;
+  color: #ffffff;
+  padding: 9px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;        /* no underline */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: #007737;
+}
+
+/* =========================
+   PAGE DIMMER
+   ========================= */
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: none;
+  transition:
+    background 0.25s ease,
+    backdrop-filter 0.25s ease;
+  z-index: 900;
+  pointer-events: none;
+}
+
+.nav-backdrop.is-visible {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1440px) {
+  .brand img {
+    height: 40px;
+  }
+
+  .desktop-nav {
+    gap: 22px;
+    margin-right: 12px;
+  }
+
+  .nav-btn {
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .nav-wrap {
+    padding: 8px 18px;
+    gap: 18px;
+    width: min(96%, 1320px);
+  }
+
+  .desktop-nav {
+    gap: 18px;
+    margin-right: 8px;
+  }
+
+  .nav-btn {
+    font-size: 13px;
+  }
+
+  .btn-primary {
+    padding: 7px 16px;
+    font-size: 12px;
+  }
+}

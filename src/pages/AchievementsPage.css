@@ -1,0 +1,214 @@
+/* PAGE SHELL -------------------------------------------------- */
+
+.achievements-page {
+  background: #ffffff;
+  color: #111827;
+  min-height: 100vh;
+}
+
+.achievements-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 96px 7vw 80px;
+}
+
+/* HEADER ------------------------------------------------------ */
+
+.achievements-header {
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+
+.achievements-heading {
+  font-size: 34px;
+  font-weight: 700;
+  color: #009846;
+  margin: 0;
+}
+
+.achievements-intro {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.achievements-subintro {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #374151;
+}
+
+/* TIMELINE ---------------------------------------------------- */
+
+.achievements-timeline {
+  position: relative;
+  margin-top: 40px;
+  padding: 10px 0 40px;
+}
+
+/* NODE -------------------------------------------------------- */
+
+.achievement-node {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.achievement-node.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.achievement-node--left {
+  justify-content: flex-start;
+}
+
+.achievement-node--right {
+  justify-content: flex-end;
+}
+
+/* YEAR BADGE -------------------------------------------------- */
+
+.achievement-year-badge {
+  position: relative;
+  z-index: 2;
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.32);
+  transform: translateY(4px);
+}
+
+.achievement-node--left .achievement-year-badge {
+  margin-right: 30px;
+}
+
+.achievement-node--right .achievement-year-badge {
+  margin-left: 30px;
+}
+
+/* CARD -------------------------------------------------------- */
+
+.achievement-card {
+  position: relative;
+  max-width: 620px;
+  flex: 1 1 auto;
+}
+
+/* removed the green side border completely */
+.achievement-card-inner {
+  position: relative;
+  border-radius: 30px;
+  background: radial-gradient(
+      circle at top left,
+      rgba(0, 152, 70, 0.06),
+      rgba(0, 152, 70, 0)
+    ),
+    #ffffff;
+  padding: 22px 26px 22px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* colourful BANCO glow on hover */
+.achievement-card-inner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px rgba(0, 152, 70, 0.35);
+  border-color: var(--accent, #009846);
+  background: radial-gradient(
+      circle at top left,
+      rgba(0, 152, 70, 0.08),
+      rgba(0, 152, 70, 0)
+    ),
+    #ffffff;
+}
+
+/* ITEMS ------------------------------------------------------- */
+
+.achievement-item + .achievement-item {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.achievement-company {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.achievement-title {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.achievement-description {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+/* RESPONSIVE -------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .achievements-inner {
+    padding-inline: 20px;
+  }
+
+  .achievement-node,
+  .achievement-node--left,
+  .achievement-node--right {
+    justify-content: flex-start;
+  }
+
+  .achievement-year-badge {
+    width: 72px;
+    height: 72px;
+    font-size: 18px;
+  }
+
+  .achievement-node--left .achievement-year-badge,
+  .achievement-node--right .achievement-year-badge {
+    margin-right: 18px;
+    margin-left: 0;
+  }
+
+  .achievement-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .achievements-heading {
+    font-size: 28px;
+  }
+
+  .achievements-intro {
+    font-size: 14px;
+  }
+
+  .achievement-card-inner {
+    padding: 18px 16px 18px;
+  }
+}

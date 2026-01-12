@@ -1,0 +1,35 @@
+:root {
+  --banco-green: #009847;
+  --banco-grey: #3f3f3f;
+  --light-grey: #f5f7f9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #ffffff;
+}
+
+/* =========================
+   PAGE WRAPPER (under fixed header)
+   ========================= */
+.page-shell {
+  min-height: 100vh;
+  padding-top: 0;
+}

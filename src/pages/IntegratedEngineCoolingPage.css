@@ -1,0 +1,320 @@
+/* src/pages/IntegratedEngineCoolingPage.css */
+
+:root {
+  --imc-green: #009846;
+  --imc-green-soft: #3be58f;
+  --imc-deep: #050710;
+  --imc-text: #111827;
+  --imc-muted: #4b5563;
+  --imc-border: #e5e7eb;
+}
+
+/* PAGE WRAPPER -------------------------------------------------- */
+
+.imc-page {
+  background: radial-gradient(circle at top left, #edf7f1 0, #ffffff 55%);
+  color: var(--imc-text);
+}
+
+/* GENERIC LAYOUT ------------------------------------------------ */
+
+.imc-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 24px 40px;
+}
+
+/* INTRO --------------------------------------------------------- */
+
+.imc-intro {
+  padding-top: 96px;         
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* make header shrink to text width so underline matches heading */
+.imc-header {
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.imc-title {
+  margin: 0;
+  font-size: clamp(30px, 3.2vw, 36px);
+  font-weight: 700;
+  color: var(--imc-green);
+}
+
+/* underline style same philosophy as other pages */
+.imc-title-underline {
+  margin-top: 10px;
+  width: 100%;
+  height: 4px;
+  background: var(--imc-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.imc-title-underline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(0, 152, 70, 0),
+    rgba(255, 255, 255, 0.9)
+  );
+  transform: translateX(-100%);
+  animation: imcSweep 2.8s ease-in-out infinite;
+}
+
+@keyframes imcSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.imc-intro-body p {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--imc-muted);
+}
+
+/* CAPABILITIES & BULLET LIST (SEALING PAGE) ----------------- */
+
+.imc-capabilities {
+  margin-top: 28px;
+}
+
+.imc-cap-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--imc-green); /* 💚 heading in green */
+}
+
+.imc-cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* shared bullet style (also used inside text panels) */
+.imc-bullet-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.imc-bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--imc-muted); /* text colour */
+}
+
+.imc-bullet-list li::before {
+  content: "➤";                /* bullet symbol */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 11px;
+  color: var(--imc-green);     /* 💚 bullet in green */
+}
+
+/* BLOCK ROWS ---------------------------------------------------- */
+
+.imc-blocks {
+  padding-top: 40px;
+}
+
+/* each row == image + text on one line, equal height */
+.imc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 36px;
+}
+
+/* reverse layout for alternating rows */
+.imc-row--reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.imc-row--reverse .imc-media {
+  order: 2;
+}
+
+.imc-row--reverse .imc-text-panel {
+  order: 1;
+}
+
+/* IMAGE PANEL --------------------------------------------------- */
+
+.imc-media {
+  height: 100%;
+  border: none; /* no border on image card */
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.16);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.imc-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imc-media:hover {
+  box-shadow:
+    0 10px 22px rgba(15, 23, 42, 0.45),
+    0 0 18px rgba(15, 23, 42, 0.3);
+  transform: translateY(-3px);
+}
+
+/* TEXT PANEL (GREEN BORDER CARD) -------------------------------- */
+
+.imc-text-panel {
+  height: 100%;
+  background: #f5f5f5;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 152, 70, 0.8); /* green border */
+  padding: 20px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.imc-text-panel::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at 100% 0,
+    rgba(0, 152, 70, 0.16),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* headings in green like other pages */
+.imc-block-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--imc-green);
+}
+
+.imc-text-panel p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--imc-muted);
+}
+
+/* hover glow on text panel */
+.imc-text-panel:hover {
+  transform: translateY(-3px);
+  border-color: #006f33;
+  box-shadow:
+    0 0 8px rgba(0, 152, 70, 0.55),
+    0 0 22px rgba(0, 152, 70, 0.45),
+    0 14px 34px rgba(15, 23, 42, 0.45);
+}
+
+.imc-text-panel:hover::before {
+  opacity: 1;
+}
+
+/* REVEAL ANIMATIONS -------------------------------------------- */
+
+.imc-reveal-left,
+.imc-reveal-right,
+.imc-reveal-up {
+  opacity: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.imc-reveal-left {
+  transform: translateX(-40px);
+}
+
+.imc-reveal-right {
+  transform: translateX(40px);
+}
+
+.imc-reveal-up {
+  transform: translateY(30px);
+}
+
+.imc-reveal-left.is-visible,
+.imc-reveal-right.is-visible,
+.imc-reveal-up.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 900ms ease-out,
+    box-shadow 900ms ease-out;
+}
+
+/* RESPONSIVE ---------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .imc-section {
+    padding: 52px 18px 32px;
+  }
+
+  .imc-row,
+  .imc-row--reverse {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .imc-row--reverse .imc-media,
+  .imc-row--reverse .imc-text-panel {
+    order: unset;
+  }
+
+  .imc-cap-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .imc-section {
+    padding: 40px 16px 26px;
+  }
+
+  .imc-title {
+    font-size: 26px;
+  }
+}

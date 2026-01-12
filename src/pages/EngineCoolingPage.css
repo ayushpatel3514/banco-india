@@ -1,0 +1,345 @@
+:root {
+  --ecs-green: #009846;
+  --ecs-dark: #050607;
+  --ecs-text: #111827;
+  --ecs-muted: #4b5563;
+  --ecs-border: #e5e7eb;
+}
+
+/* page wrapper */
+.ecs-page {
+  background: #ffffff;
+  color: var(--ecs-text);
+}
+
+/* ========== GENERIC SECTIONS ========== */
+
+.ecs-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 24px 32px;
+}
+
+/* two column layouts */
+.ecs-two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.ecs-two-col--images {
+  margin-top: 32px;
+}
+
+.ecs-two-col--text {
+  margin-top: 32px;
+}
+
+.ecs-two-col--cards {
+  gap: 24px;
+}
+
+.ecs-two-col--bullets {
+  gap: 40px;
+}
+
+/* headings & text */
+
+.ecs-title-wrap {
+  display: inline-block; /* underline = heading width */
+  margin-bottom: 18px;
+}
+
+.ecs-title {
+  font-size: clamp(32px, 3.4vw, 40px);
+  margin: 0 0 10px;
+  font-weight: 800;
+  color: var(--ecs-green);
+}
+
+/* underline styled like CompanyPage.jsx */
+.ecs-title-underline {
+  width: 100%;
+  height: 3px;
+  background: var(--ecs-green);
+  margin-top: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ecs-title-underline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(0, 152, 70, 0),
+    rgba(255, 255, 255, 0.9)
+  );
+  transform: translateX(-100%);
+  animation: ecsUnderlineSweep 2.4s ease-in-out infinite;
+}
+
+@keyframes ecsUnderlineSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.ecs-subtitle {
+  margin: 4px 0 18px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ecs-green);
+}
+
+.ecs-intro-text p {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ecs-muted);
+}
+
+.ecs-block-title {
+  font-size: 22px;
+  margin: 0 0 14px;
+  color: var(--ecs-green);
+  font-weight: 600;
+}
+
+.ecs-inline-heading {
+  font-weight: 600;
+  margin: 18px 0 6px;
+  color: var(--ecs-text);
+}
+
+.ecs-content p {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ecs-muted);
+}
+
+.ecs-conclusion {
+  margin-top: 12px;
+}
+
+/* media blocks */
+
+.ecs-media {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.ecs-media img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.ecs-media-small img {
+  max-height: 260px;
+  object-fit: contain;
+}
+
+.ecs-media-wide img {
+  max-height: 260px;
+  object-fit: cover;
+}
+
+/* bullet list */
+
+.ecs-bullet-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 0;
+}
+
+.ecs-bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: var(--ecs-muted);
+}
+
+.ecs-bullet-list li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 12px;
+  color: var(--ecs-green);
+}
+
+/* cards & panels */
+
+.ecs-panel {
+  background: #ffffff;
+}
+
+.ecs-panel-inner {
+  border-radius: 22px;
+  border: 1px solid rgba(0, 152, 70, 0.6);
+  background: #f5fff9;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  padding: 28px 28px 24px;
+}
+
+.ecs-card {
+  border-radius: 22px;
+  border: 1px solid rgba(0, 152, 70, 0.6);
+  background: #ffffff;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ecs-card-media img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.ecs-card-body {
+  padding: 18px 20px 16px;
+}
+
+/* section headers (for sub sections like co-create) */
+
+.ecs-section-header {
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.ecs-kicker {
+  font-size: 28px;
+  margin: 0;
+  color: var(--ecs-green);
+  font-weight: 700;
+}
+
+/* generic underline class kept in case needed later, not used now */
+.ecs-underline {
+  width: 100%;
+  height: 3px;
+  background: var(--ecs-green);
+  margin-top: 10px;
+}
+
+/* rigs pair */
+
+.ecs-rigs-pair {
+  padding-top: 40px;
+}
+
+.ecs-rigs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.ecs-rig-card {
+  border-radius: 22px;
+  border: 1px solid rgba(0, 152, 70, 0.6);
+  background: #f5fff9;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  padding: 20px 20px 18px;
+}
+
+.ecs-rig-image-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.ecs-rig-image-wrap img {
+  width: 100%;
+  max-height: 230px;
+  object-fit: cover;
+}
+
+.ecs-rig-body p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ecs-muted);
+}
+
+/* wind tunnel panel tweak */
+
+.ecs-wind-panel .ecs-panel-inner {
+  padding-top: 26px;
+}
+
+/* special sections */
+
+.ecs-header {
+  padding-top: 96px;      /* ↑ more space below navbar */
+  padding-bottom: 32px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* ========== REVEAL ANIMATIONS ========== */
+
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 1s ease-out;
+  will-change: transform, opacity;
+}
+
+.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal-right {
+  transform: translateX(40px);
+}
+
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1024px) {
+  .ecs-two-col {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ecs-section {
+    padding: 48px 18px 28px;
+  }
+
+  .ecs-rigs-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .ecs-section {
+    padding: 40px 16px 24px;
+  }
+
+  .ecs-subtitle {
+    font-size: 20px;
+  }
+
+  .ecs-block-title {
+    font-size: 20px;
+  }
+}

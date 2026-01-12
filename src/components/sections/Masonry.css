@@ -1,0 +1,79 @@
+/* container that GSAP/Masonry positions into */
+.list {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding-bottom: 40px;
+}
+
+/* each item’s outer wrapper (positioned by GSAP) */
+.item-wrapper {
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* main card – looks like your screenshot tiles */
+.item-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* IMAGE block */
+.item-img {
+  background-color: #f5f5f5;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 28px 24px 18px;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* TEXT block */
+.item-body {
+  padding: 0 24px 22px;
+  text-align: center;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: #009846;
+}
+
+.item-desc {
+  display: none; /* hidden to match reference screenshot */
+}
+
+/* FOCUS EFFECT:
+   - When hovering over the grid: blur & fade ALL images.
+   - The hovered card becomes sharp and green.
+*/
+.list:hover .item-img {
+  filter: blur(3px);
+  opacity: 0.45;
+}
+
+.item-wrapper:hover .item-img {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* hovered tile gets green background like screenshot */
+.item-wrapper:hover .item-card {
+  background: #009846;
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+}
+
+.item-wrapper:hover .item-title {
+  color: #ffffff;
+}
